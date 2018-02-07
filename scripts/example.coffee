@@ -14,10 +14,10 @@ module.exports = (robot) ->
      res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
    
    robot.hear /quem o Pedro ama?/i, (res) ->
-     res.send "A Juliana! :heart:"
+     res.send "A Juliana! ❤️"
   
    robot.hear /quem a Juliana ama?/i, (res) ->
-     res.send "O Pedro! <3"
+     res.send "O Pedro! ❤️"
   
    robot.hear /start/, (res) ->
      res.send "Olá, eu sou o Sabrino! Diga 'help' para saber todos os meus comandos ;)"
