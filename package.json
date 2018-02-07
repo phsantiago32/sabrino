@@ -1,5 +1,5 @@
 {
-  "name": "dingo",
+  "name": "sabrino",
   "version": "0.0.0",
   "private": true,
   "author": "Pedro Santiago <phsantiago32@gmail.com>",
@@ -20,6 +20,6 @@
     "hubot-telegram": "^0.1.2"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "6.10.3"
   }
 }
