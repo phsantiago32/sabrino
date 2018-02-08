@@ -43,7 +43,7 @@ module.exports = (robot) ->
    robot.respond /lulz/i, (res) ->
      res.send res.random lulz
   
-   chorando = ["to fingindo", "to chorando só", ":cry:"]
+   chorando = ["to fingindo", "to chorando só", "😢"]
    robot.respond /ta chorando ou ta fingindo?/i, (res) ->
      res.send res.random chorando
   
