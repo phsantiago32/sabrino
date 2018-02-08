@@ -10,6 +10,12 @@
 
 module.exports = (robot) ->
 
+   listenerOptions = {"id":"deploy","auth":"true","roles":"admin"}
+
+   robot.respond /deploy (.*)/i, listenerOptions, (res) ->
+     application = res.match[1]
+     res.reply "deploying #{application}"
+   
    robot.hear /badger/i, (res) ->
      res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
    
