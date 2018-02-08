@@ -10,5 +10,5 @@
   "hubot-rules",
   "hubot-shipit",
   "hubot-auth",
-  "hubot-auth-middleware"
+  "hubot-auth-middleware-ext"
 ]
