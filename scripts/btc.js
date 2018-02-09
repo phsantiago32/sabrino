@@ -5,12 +5,10 @@ const ba = require('bitcoinaverage');
 
 function BTC(robot) {
     robot.hear(/btc/i, function (msg) {
-        var key1 = 'YzFiMWU1ODViMDJkNDg4NmFhNjVlNDc4Mzg1ZjMxYTM';
-        var key2 = 'MzM4MmFjN2EwM2Y3NDIwNDg4NTEyOGZhYzZmODE1ODM1YTViNTM3NDk2ODI0ZmE0OGYyZTYzYjM2MjU0ZjgzMg';
-        var pk = process.env.BTC_AVERAGE_PK || 'empty';
-        msg.send(pk);
-        
-        var restClient = ba.restfulClient(key1, key2);
+        var pk = process.env.BTC_AVERAGE_PK || '';
+        var sk = process.env.BTC_AVERAGE_SK || ''
+
+        var restClient = ba.restfulClient(pk, sk);
 
         // Convert from BTC to USD
         var from = 'BTC', to = 'USD', amount = 1;
