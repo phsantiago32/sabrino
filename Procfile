@@ -1,1 +1,1 @@
-web: bin/hubot -n sabrinobot
+web: bin/hubot -a telegram -n sabrinobot
