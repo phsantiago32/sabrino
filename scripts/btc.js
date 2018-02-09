@@ -4,7 +4,19 @@
 const ba = require('bitcoinaverage');
 
 function BTC(robot) {
-    robot.hear(/btc/i, function (msg) {
+    robot.hear(/btc to USD/i, function (msg) {
+        // var currency = msg.match[1]
+        // if (currency == 'BRL') {
+        //     robot.http("https://api.bitcointrade.com.br/v1/market/estimated_price?amount=1&currency=BTC&type=buy")
+        //         .header('Authorization', 'ApiToken U2FsdGVkX1+Xt8N9NmAVW7Kn2v0rQ5fVPYf8z4Y/yzg=')
+        //         .get(function (err, response, body) {
+        //             if (err) {
+        //                 msg.send("Erro! " + err)
+        //             }
+        //             msg.send("response: " + body)
+        //         })
+        // }
+        // else {
         var pk = process.env.BTC_AVERAGE_PK || '';
         var sk = process.env.BTC_AVERAGE_SK || ''
 
@@ -18,6 +30,7 @@ function BTC(robot) {
             var apiResponse = "At time " + response.time + " the cost of " + amount + " " + from + " is " + response.price + " " + to;
             msg.send(apiResponse);
         });
+        // }
     });
 }
 
