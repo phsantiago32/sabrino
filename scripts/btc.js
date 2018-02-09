@@ -1,3 +1,6 @@
+// Description:
+//   Commands for gathering BTC info.
+
 const ba = require('bitcoinaverage');
 
 function BTC(robot) {
