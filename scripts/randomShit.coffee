@@ -32,6 +32,7 @@ module.exports = (robot) ->
        
         if data.data.price % 1 == 0
           res.send "At time #{new Date().toLocaleString()} the cost of 1 BTC is R$ #{data.data.price},00"
+          return
 
         res.send "At time #{new Date().toLocaleString()} the cost of 1 BTC is R$ #{data.data.price}"
 
