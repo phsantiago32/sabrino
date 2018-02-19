@@ -28,7 +28,7 @@ function cron(robot) {
         });
     }
 
-    var cronPattern = '0 25 18 * * MON,TUE,WED,THU,FRI';
+    var cronPattern = '0 0 17 * * MON,TUE,WED,THU,FRI';
     var timezone = 'America/Sao_Paulo';
 
     new HubotCron(cronPattern, timezone, breakTime);
