@@ -3,12 +3,20 @@
 
 const HubotCron = require('hubot-cronjob');
 const request = require('request');
+const Tgfancy = require("tgfancy");
 
 function cron(robot) {
+    const userJuliana = '';
+    const userCabral = '@tiagocabralb';
+    const token = process.env.TELEGRAM_TOKEN;
+
+    const bot = new Tgfancy(token, {
+        tgfancy: {
+            chatIdResolution: true
+        },
+    });
 
     var breakTime = function () {
-
-        var token = process.env.TELEGRAM_TOKEN;
 
         var requestOptions = {
             uri: 'https://api.telegram.org/bot'+token+'/sendMessage',
@@ -32,6 +40,16 @@ function cron(robot) {
     var timezone = 'America/Sao_Paulo';
 
     new HubotCron(cronPattern, timezone, breakTime);
+
+    robot.hear(/find me/i, function (msg) {
+        console.log('waiting...');
+        bot.sendMessage("@phsantiago", "Message sent using username");
+    });
+
+    robot.hear(/cabral viado/i, function (msg) {
+        msg.send('zoando o cabral');
+        bot.sendMessage(userCabral, "viado");
+    });
 
 }
 
