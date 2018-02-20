@@ -3,6 +3,9 @@
 
 var dotenv = require('dotenv');
 
-module.exports = function init() {
+function init() {
     dotenv.config()
+    console.log('env loaded');
 }
+
+module.exports = init;
