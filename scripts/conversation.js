@@ -4,9 +4,9 @@
 const Conversation = require('hubot-conversation');
 function conversation(robot) {
 
-    var switchBoard = new Conversation(robot);
-
     robot.respond(/clean the house/, function (msg) {
+
+        var switchBoard = new Conversation(robot);
         var dialog = switchBoard.startDialog(msg);
 
         msg.reply('Sure, where should I start? Kitchen or Bathroom');
@@ -22,6 +22,7 @@ function conversation(robot) {
     });
 
     robot.respond(/jump/, function (msg) {
+        var switchBoard = new Conversation(robot);
         var dialog = switchBoard.startDialog(msg);
         msg.reply('Sure, How many times?');
 
