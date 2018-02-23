@@ -4,6 +4,7 @@
 const HubotCron = require('hubot-cronjob');
 const request = require('request');
 const Tgfancy = require("tgfancy");
+const datejs = require('datejs');
 const telegramToken = process.env.TELEGRAM_TOKEN;
 const btcToken = process.env.BTC_TRADE_TOKEN;
 const bot = new Tgfancy(telegramToken, {
@@ -32,24 +33,38 @@ function cron(robot) {
             }
         };
 
+        var lastAlertDate;
         request(requestOptions, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 var r = JSON.parse(body);
 
                 var price = parseFloat(Math.round(r.data.price * 100) / 100).toFixed(2);
 
-                var dateTime = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
-                
-                if (price <= 32000) {
-                    bot.sendMessage("65171887", "ALERTA DE BAIXA! Preço de venda do BTC abaixo de 32k: R$" + price + "(" + dateTime + ")");
+                var dateNow = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+
+                if (price <= 32000 && shouldAlert(lastAlertDate, dateNow)) {
+                    lastAlertDate = dateNow;
+                    bot.sendMessage("65171887", "ALERTA DE BAIXA! Preço de venda do BTC abaixo de 32k: R$" + price + "(" + dateNow + ")");
                 }
                 else if (price >= 39000) {
-                    bot.sendMessage("65171887", "ALERTA DE ALTA! Preço de venda do BTC acima de 39k:" + price + "(" + dateTime + ")");
+                    lastAlertDate = dateNow;
+                    bot.sendMessage("65171887", "ALERTA DE ALTA! Preço de venda do BTC acima de 39k:" + price + "(" + dateNow + ")");
+                }
+                else {
+                    bot.sendMessage("65171887","Preço de venda do BTC:" + price + "(" + dateNow + ")");
                 }
             } else {
                 bot.sendMessage("65171887", "Erro ao sondar BTC");
             }
         });
+
+        function shouldAlert(startDate, endDate) {
+            if (!startDate) {
+                return true;
+            }
+            var diff = new TimeSpan(endDate - startDate);
+            return diff.minutes > 10;
+        }
     }
 
     new HubotCron('*/5 * * * *', timezone, btcMonitor);
