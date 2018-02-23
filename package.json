@@ -11,7 +11,6 @@
     "hubot": "^2.19.0",
     "hubot-auth": "^2.1.0",
     "hubot-auth-middleware-ext": "0.0.1",
-    "hubot-conversation": "^1.1.1",
     "hubot-cronjob": "^0.2.2",
     "hubot-diagnostics": "0.0.2",
     "hubot-google-images": "^0.2.7",
