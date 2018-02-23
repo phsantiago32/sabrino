@@ -85,7 +85,7 @@ function cron(robot) {
 
                 var dateNow = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
 
-                bot.sendMessage("65171887", "Preço de venda do BTCR$" + price + " (" + dateNow + ")");
+                bot.sendMessage("65171887", "Preço de venda do BTC: R$" + price + " (" + dateNow + ")");
             }
             else {
                 bot.sendMessage("65171887", "Erro ao sondar BTC");
