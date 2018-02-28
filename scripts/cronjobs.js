@@ -53,6 +53,7 @@ function cron(robot) {
             }
             else {
                 bot.sendMessage("65171887", "Erro ao sondar BTC (alerta)");
+                bot.sendMessage("65171887", "Error: \n" + error);
             }
         });
 
