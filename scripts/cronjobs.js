@@ -42,11 +42,11 @@ function cron(robot) {
 
                 var dateNow = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
 
-                if (price <= 32000) {
+                if (price <= 25000) {
                     lastAlertDate = dateNow;
                     bot.sendMessage("65171887", "ALERTA DE BAIXA! Preço de venda do BTC abaixo de 32k: R$" + price + " (" + dateNow + ")");
                 }
-                else if (price >= 39000) {
+                else if (price >= 32000) {
                     lastAlertDate = dateNow;
                     bot.sendMessage("65171887", "ALERTA DE ALTA! Preço de venda do BTC acima de 39k: R$" + price + " (" + dateNow + ")");
                 }
