@@ -6,7 +6,7 @@
   "description": "A simple helpful robot for your Company",
   "dependencies": {
     "bitcoinaverage": "^1.0.0",
-    "cheerio": "^1.0.0-rc.2",
+    "cheerio": "^1.0.0-rc.12",
     "datejs": "^1.0.0-rc3",
     "hubot": "^3.3.2",
     "hubot-auth": "^2.1.0",
